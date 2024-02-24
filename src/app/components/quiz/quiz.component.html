@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="quiz_logo">
+        <img src="assets/imgs/logo.png" alt="logo" srcset="">
+        <h3>{{title}}</h3>
+    </div>
+    <div class="quiz_question">
+        <h3>{{question}}</h3>
+    </div>
+    <hr>
+    <div class="quiz_options">
+        <button class="option" *ngFor='let op of options'>
+            {{op}}
+        </button>
+    </div>
+    
+    <div *ngIf='finished' class="quiz_result">
+        <hr>
+        <h1>{{result}}</h1>
+        <p>{{option}}</p>
+    </div>
+</div>
