@@ -3,19 +3,28 @@
         <img src="assets/imgs/logo.png" alt="logo" srcset="">
         <h3>{{title}}</h3>
     </div>
-    <div class="quiz_question">
-        <h3>{{question}}</h3>
-    </div>
-    <hr>
-    <div class="quiz_options">
-        <button class="option" *ngFor='let op of options'>
-            {{op}}
-        </button>
+
+    
+
+
+    <ng-template #elseBlock>
+        <div class="quiz_question">
+            <h3>{{question}}</h3>
+            <hr>
+        </div>
+        
+        <div class="quiz_options">
+            <button class="option" (click)="proxima(op.alias)" *ngFor='let op of options'>
+                {{op.name}}
+            </button>
+        </div>
+    </ng-template>
+
+    <div *ngIf='finished ; else elseBlock' class="result_container">
+        
+        <h1 class="quiz_result">{{result}}</h1>
+        <button class="bt_restart" (click)="restart()">restart</button>
     </div>
     
-    <div *ngIf='finished' class="quiz_result">
-        <hr>
-        <h1>{{result}}</h1>
-        <p>{{option}}</p>
-    </div>
+    
 </div>
